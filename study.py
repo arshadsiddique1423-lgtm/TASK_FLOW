@@ -11,7 +11,7 @@ from pathlib import Path
 # PAGE CONFIG
 # ==================================================
 st.set_page_config(
-    page_title="TaskFlow | Study Planner",
+    page_title="TimeTide | Study Planner",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -331,7 +331,7 @@ def go_to_all_tasks():
 tasks = get_tasks()
 
 with st.sidebar:
-    st.markdown("## 🎯 TaskFlow")
+    st.markdown("## 🎯 TimeTide")
     st.caption("Your personal study workspace")
     st.divider()
 
