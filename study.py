@@ -34,23 +34,76 @@ st.markdown("""
 .stApp {
     background: #0b1020;
     color: #e5e7eb;
+    font-size: 14px;
 }
 [data-testid="stMainBlockContainer"] {
-    padding-top: 1rem;
+    padding-top: 0.75rem;
     max-width: 1450px;
 }
 h1, h2, h3, h4 { color: #f8fafc !important; }
 p, label, .stMarkdown { color: #d0d8e8; }
 
+/* Make page and content sections easy to scan */
+[data-testid="stMain"] [data-testid="stHeading"] h2 {
+    margin: 1rem 0 0.75rem;
+    padding: 0 0 8px;
+    border-bottom: 2px solid #465a7b;
+    color: #ffffff !important;
+    letter-spacing: 0.01em;
+    font-size: 1.4rem;
+}
+[data-testid="stMain"] [data-testid="stMarkdownContainer"] h3 {
+    margin: 1.2rem 0 0.7rem;
+    padding: 8px 12px;
+    border: 1px solid #344765;
+    border-left: 3px solid #818cf8;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #182640, #121c30);
+    color: #e0e7ff !important;
+    line-height: 1.25;
+    font-size: 1.05rem;
+}
+[data-testid="stMain"] [data-testid="stMarkdownContainer"] h4 {
+    margin: 0.9rem 0 0.5rem;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #34445e;
+    color: #c7d2fe !important;
+    font-size: 0.98rem;
+}
+
 /* Remove Streamlit's top decoration/header line */
 [data-testid="stDecoration"],
 [data-testid="stStatusWidget"],
+[data-testid="stAppHeader"],
 [data-testid="stHeader"],
 header[data-testid="stHeader"] {
     border: 0 !important;
+    border-bottom: 0 !important;
     outline: 0 !important;
     box-shadow: none !important;
     background: #0b1020 !important;
+}
+[data-testid="stHeader"] {
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+[data-testid="stToolbar"] {
+    height: 0 !important;
+    min-height: 0 !important;
+    background: transparent !important;
+}
+[data-testid="stAppDeployButton"],
+[data-testid="stMainMenu"] {
+    display: none !important;
+}
+[data-testid="stExpandSidebarButton"],
+[data-testid="stCollapseSidebarButton"] {
+    position: fixed !important;
+    top: 8px !important;
+    right: 10px !important;
+    left: auto !important;
+    z-index: 1000000 !important;
 }
 [data-testid="stAppViewContainer"],
 [data-testid="stMain"],
@@ -72,22 +125,33 @@ footer { visibility: hidden; }
 [data-testid="stMetric"] {
     background: #141f33;
     border: 1px solid #293650;
-    padding: 18px;
-    border-radius: 15px;
+    padding: 12px;
+    border-radius: 12px;
 }
-[data-testid="stMetricValue"] { color: #ffffff; }
-[data-testid="stMetricLabel"] { color: #a8b7d0; }
+[data-testid="stMetricValue"] {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+[data-testid="stMetricLabel"] {
+    color: #a8b7d0;
+    font-size: 0.82rem;
+}
 [data-testid="stVerticalBlockBorderWrapper"] {
     background: #111b2d;
     border-color: #293650;
-    border-radius: 14px;
+    border-radius: 10px;
 }
 
 /* App buttons */
 .stButton button, .stDownloadButton button {
-    border-radius: 10px;
-    min-height: 40px;
+    border-radius: 8px;
+    min-height: 34px;
+    min-width: 0 !important;
+    width: fit-content !important;
+    padding: 0.3rem 0.6rem;
     font-weight: 600;
+    font-size: 0.85rem;
+    line-height: 1.2;
 }
 .stButton button[kind="primary"] {
     background: #6366f1;
@@ -101,21 +165,42 @@ footer { visibility: hidden; }
 [data-baseweb="select"] > div {
     background: #172238;
     border-color: #34445e;
+    min-height: 36px;
 }
-input, textarea { border-radius: 8px !important; }
-hr { border-color: #293650; }
+input, textarea {
+    border-radius: 7px !important;
+    font-size: 0.88rem !important;
+}
+hr {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(90deg, #818cf8, #34445e 65%, transparent);
+    margin: 1.2rem 0;
+}
 
 /* Hero card: no border */
 .hero {
     background: linear-gradient(120deg, #172554, #172033, #312e81);
-    padding: 25px;
-    border: none !important;
+    padding: 12px 16px;
+    border: 0 !important;
+    border-top: 0 !important;
     outline: none !important;
     box-shadow: none !important;
-    border-radius: 18px;
-    margin-bottom: 22px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
-.hero p { color: #cbd5e1; }
+.hero h1 {
+    margin: 0 0 4px;
+    padding: 0 !important;
+    font-size: 1.65rem;
+    line-height: 1.15;
+}
+.hero p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
 .small-note { color: #93a4bd; font-size: 13px; }
 
 /* Circular Streamlit sidebar and toolbar controls only */
