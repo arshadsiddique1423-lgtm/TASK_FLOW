@@ -369,7 +369,7 @@ with st.sidebar:
 # ==================================================
 st.markdown("""
 <div class="hero">
-    <h1>🎯 TaskFlow</h1>
+    <h1>🎯 TimeTide</h1>
     <p>Plan your study day, track your progress, and focus on what matters.</p>
 </div>
 """, unsafe_allow_html=True)
@@ -935,7 +935,7 @@ elif page == "Settings":
     st.markdown("### Database")
     st.write(f"Local database file: `{DB_PATH.name}`")
     st.caption(
-        "Keep a backup of this file if you run TaskFlow locally. "
+        "Keep a backup of this file if you run TimeTide locally. "
         "It contains your saved task records."
     )
 
@@ -968,7 +968,7 @@ st.divider()
 
 st.markdown(
     "<p style='text-align:center;color:#8292ac;font-size:13px;'>"
-    "TaskFlow · Build better habits, one task at a time."
+    "Timetide · Build better habits, one task at a time."
     "</p>",
     unsafe_allow_html=True
 )
